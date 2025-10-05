@@ -101,7 +101,7 @@ Optimized Parameter Values:
 ## Example: PV/Electrolyzer Ratio Optimization
 
 ### Test Case
-**File:** `data/PV_E/Base/PV_E_Base_Optimization_Complete.md`
+**File:** `data/PV_E/Optimization/PV_E_Base_Optimization.md`
 
 **Objective:** Find the optimal ratio of photovoltaic capacity to electrolyzer capacity that minimizes LCOH₂
 

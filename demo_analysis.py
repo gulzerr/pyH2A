@@ -12,7 +12,7 @@ def main():
     # Get the project root directory
     project_root = Path(__file__).parent
     
-    input_file = 'data/PV_E/Base/PV_E_Base_Optimization_Complete.md'
+    input_file = 'data/PV_E/Optimization/PV_E_Base_Optimization.md'
     output_dir = project_root / 'Example_Output'
     
     # Create the output directory if it doesn't exist
