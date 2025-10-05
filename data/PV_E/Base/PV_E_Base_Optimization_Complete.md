@@ -120,6 +120,21 @@ Name | Cost ($) | Path | Comment
 --- | --- | --- | ---
 Electrolyzer Stack Replacement | 40% | Direct Capital Costs - Electrolyzer > Electrolyzer CAPEX ($/kW) > Value | Based on Chang 2020
 
+# Optimization_Analysis
+
+Name | Value | Comment
+--- | --- | ---
+Max Iterations | 2000 | Maximum number of iterations for differential evolution optimizer
+Population Size | 30 | Population size multiplier for differential evolution (total = multiplier × number of parameters)
+Tolerance | 0.001 | Convergence tolerance for optimization
+Random Seed | 42 | Random seed for reproducibility
+
+# Parameters - Optimization_Analysis
+
+Parameter | Name | Lower_Bound | Upper_Bound | Comment
+--- | --- | --- | --- | ---
+Photovoltaic > Nominal Power (kW) > Value | PV/Electrolyzer Ratio | 0.3 | 5.0 | Optimize the ratio of PV to electrolyzer capacity (baseline: 1.5)
+
 # Sensitivity_Analysis - Deactivate
 
 Parameter | Name | Type | Values
@@ -140,26 +155,15 @@ Direct Capital Costs - PV > PV CAPEX ($/kW) > Value | \$/kW(PV) | value | 220
 Direct Capital Costs - Electrolyzer > Electrolyzer CAPEX ($/kW) > Value | \$/kW(Electro- lyzer) | value | 200
 Planned Replacement > Electrolyzer Stack Replacement > Cost ($)| Stack replacement (%E-CAPEX) | value | 20% | True
 
-# Monte_Carlo_Analysis
+# Monte_Carlo_Analysis - Deactivate
 
 Name | Value | Comment
 --- | --- | ---
 Samples | 50,000 | Number of samples in Monte Carlo simulation.
 Target Price Range ($) | 1.5; 1.6
-Input File | data/PV_E/Base/Monte_Carlo_Output.csv
+Input File | pyH2A/data/PV_E/Base/Monte_Carlo_Output.csv
 
-# Parameters - Monte_Carlo_Analysis
-
-Parameter | Name | Type | Values | File Index | Comment
---- | --- | --- | --- | --- | --- 
-Direct Capital Costs - PV > PV CAPEX ($/kW) > Value | \$ / kW(PV) | value | Base; 220 | 0 | Based on Waldau 2021 PV CAPEX projection for 2050 (PV module learning rate of 25%, BOS learning rate of 7.5%, base PV growth scenario).
-Direct Capital Costs - Electrolyzer > Electrolyzer CAPEX ($/kW) > Value | \$ / kW(Electrolyzer) | value | Base; 200 | 1 | CAPEX reduction to 200 $/kW in 2050 based on IRENA Green Hydrogen 2020, learning curve model Waldau 2021 (using their cost reduction factor of ca. 4-5 until 2050 due to learning).
-Electrolyzer > Conversion efficiency (kg H2/kWh) > Value | kg($H_{2}$) / kWh(Electricity) | value | Base; 0.025 | 2 | Maximum efficiency: 0.02538 kg H2/kWh, Chang 2020 (based on reaction enthalpy).
-Planned Replacement > Electrolyzer Stack Replacement > Cost ($) | Stack repl. (fr. E-CAPEX) | value | Base; 20% | 3 | Decreasing stack replacement cost to 20% of electrolyzer CAPEX.
-
-# Cost_Contributions_Analysis - Deactivate
-
-# Methods - Cost_Contributions_Analysis 
+# Parameters - Monte_Carlo_Analysis 
 
 Name | Method Name | Arguments
 --- | --- | ---

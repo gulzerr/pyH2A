@@ -77,7 +77,11 @@ class Hourly_Irradiation_Plugin:
 
 def converter_function(string):
 	'''Converter function for datetime of hourly irradiation data.'''
-
+	
+	# Handle both bytes and string input
+	if isinstance(string, bytes):
+		string = string.decode('latin1')
+	
 	split = string.split(':')
 
 	return float(split[1][:2]) #- 0.5
